@@ -33,7 +33,6 @@
 
 .product-images img {
     width: 100%;
-    border: 1px solid #ddd;
     padding: 10px;
     background-color: #fff;
 }
