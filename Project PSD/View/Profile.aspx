@@ -268,12 +268,15 @@
                 <div ><asp:TextBox ID="PassTxt" runat="server" class="rectangle3"></asp:TextBox></div>
                 <div class="DOB-text">Date of Birth:</div>
                 <div ><asp:TextBox ID="DOBTxt" runat="server" class="rectangle4"></asp:TextBox></div>
-                <div><a href="#" ><asp:Button ID="UpdatePassBtn" runat="server" Text="Update Password" class="overal-group"/></a></div>
+                <div>
+                    <asp:Button ID="UpdatePassBtn" runat="server" Text="Update Password" class="overal-group" OnClick="UpdatePassBtn_Click" /></div>
                 <a href="Home.aspx"><img class="vector" src="../Img/Vector.png" /></a>
                 <img class="img" src="../Img/Ptofile.png" />
                 <img class="line" src="../Img/Line 9.png" />
-                <div  ><div ><asp:Button ID="UpdateProfileBtn" runat="server" Text="Update Profile" class="BtnUpdate" /></div></div>
-                <div  ><div ><asp:Button ID="LogoutBtn" runat="server" Text="Log Out" class="BtnLogout" /></div></div>
+                <div  ><div >
+                    <asp:Button ID="UpdateProfileBtn" runat="server" Text="Update Profile" class="BtnUpdate" OnClick="UpdateProfileBtn_Click" /></div></div>
+                <div  ><div >
+                    <asp:Button ID="LogoutBtn" runat="server" Text="Log Out" class="BtnLogout" OnClick="LogoutBtn_Click" /></div></div>
 
             </div>
         </div>

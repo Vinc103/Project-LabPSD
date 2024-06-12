@@ -10,63 +10,83 @@ namespace Project_PSD.View
 {
     public partial class Profile : System.Web.UI.Page
     {
+        EcommerceDbEntities db = new EcommerceDbEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-        
-            EcommerceDbEntities db = new EcommerceDbEntities();
-
-
-            public ConfirmBtn_Click(object sender, EventArgs e)
+            if (!IsPostBack)
             {
-                string newPassword = newPassTxt.Text;
-                string confirmPassword = ConfrimPassTxt.Text;
+                // Load user profile information
+                LoadUserProfile();
+            }
+        }
 
-                if (newPassword == confirmPassword)
+        private void LoadUserProfile()
+        {
+            string username = User.Identity.Name; // Assuming the username is the identity name
+            var user = db.Users.FirstOrDefault(u => u.Username == username);
+
+            if (user != null)
+            {
+                EmailTxt.Text = user.UserEmail;
+                DOBTxt.Text = user.UserDOB?.ToString("yyyy-MM-dd");
+            }
+        }
+
+        protected void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            // Implement logout functionality
+            // For example:
+            // FormsAuthentication.SignOut();
+            // Response.Redirect("Login.aspx");
+        }
+
+        protected void UpdateProfileBtn_Click(object sender, EventArgs e)
+        {
+            string username = User.Identity.Name; // Assuming the username is the identity name
+            var user = db.Users.FirstOrDefault(u => u.Username == username);
+
+            if (user != null)
+            {
+                user.UserEmail = EmailTxt.Text;
+                DateTime dob;
+                if (DateTime.TryParse(DOBTxt.Text, out dob))
                 {
-                    bool isUpdated = db.UserPassword(User.Identity.Name, newPassword);
+                    user.UserDOB = dob;
+                }
 
-                    if (isUpdated)
-                    {
-                        Response.Redirect("Profile.aspx?message=PasswordUpdated");
-                    }
-                    else
-                    {
-                        Response.Write("<script>alert('Error updating password');</script>");
-                    }
+                db.SaveChanges();
+                Response.Redirect("Profile.aspx?message=ProfileUpdated");
+            }
+            else
+            {
+                Response.Write("<script>alert('User not found');</script>");
+            }
+        }
+
+        protected void UpdatePassBtn_Click(object sender, EventArgs e)
+        {
+            string username = User.Identity.Name; // Assuming the username is the identity name
+            var user = db.Users.FirstOrDefault(u => u.Username == username);
+
+            if (user != null)
+            {
+                string newPassword = UpdatePassBtn.Text;
+ 
+                if(UpdatePassBtn != null)
+                {
+                    user.UserPassword = newPassword; // Hash the password before saving in production
+                    db.SaveChanges();
+                    Response.Redirect("Profile.aspx?message=PasswordUpdated");
                 }
                 else
                 {
                     Response.Write("<script>alert('Passwords do not match');</script>");
                 }
             }
-
-            protected void UpdateProfileBtn_Click(object sender, EventArgs e)
+            else
             {
-                string email = emailTxt.Text;
-                DateTime dob;
-                string gender = genderTxt.Text;
-
-                if (DateTime.TryParse(dobTxt.Text, out dob))
-                {
-                    bool isUpdated = userDataAccess.UpdateProfile(User.Identity.Name, email, dob, gender);
-
-                    if (isUpdated)
-                    {
-                        Response.Redirect("Profile.aspx?message=ProfileUpdated");
-                    }
-                    else
-                    {
-                        Response.Write("<script>alert('Error updating profile');</script>");
-                    }
-                }
-                else
-                {
-                    Response.Write("<script>alert('Invalid Date of Birth format');</script>");
-                }
+                Response.Write("<script>alert('User not found');</script>");
             }
         }
-    }
-
-}
     }
 }
