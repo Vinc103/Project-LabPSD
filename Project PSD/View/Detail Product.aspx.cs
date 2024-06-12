@@ -33,8 +33,8 @@ namespace Project_PSD.View
                 var product = db.Makeups.FirstOrDefault(p => p.MakeupId == makeupId);
                 if (product != null)
                 {
-                    ProductName.InnerText = product.ProductName;
-                    ProductPrice.InnerText = $"Rp. {product.Price:N0}";
+                    ProductName.InnerText = product.MakeupName;
+                    MakeupPrice.InnerText = $"Rp. {product.MakeupPrice:N0}";
                     ProductDescription.InnerText = product.Description;
                     mainImage.Src = $"../Web Img/{product.ImagePath}";
                 }
