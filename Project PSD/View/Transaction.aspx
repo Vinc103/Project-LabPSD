@@ -106,7 +106,7 @@
     <form id="form1" runat="server">
         <div class="overlap"><div class="text-wrapper">MakeMeUpzz</div></div>
         <a href="Home.aspx"><img class="vector" src="../Img/Vector.png" /></a>
-        <div class="container">
+     <div class="container">
             <h1>Checkout</h1>
             <div class="cart-details">
                 <asp:Repeater ID="rptCartItems" runat="server">
@@ -151,8 +151,8 @@
                 <label for="cvv">CVV:</label>
                 <asp:TextBox ID="txtCVV" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
-            <asp:Button ID="SumbitBtn" runat="server" Text="Complete Purchase" class="btn"/>
-         </div>
+            <asp:Button ID="SubmitBtn" runat="server" Text="Complete Purchase" CssClass="btn" OnClick="SubmitBtn_Click" />
+        </div>
     </form>
 </body>
 </html>
