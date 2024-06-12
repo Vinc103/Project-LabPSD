@@ -206,7 +206,7 @@ a {
           </div>
               <%--Jadi Button--%>
               <a href="Profile.aspx" >
-                  <asp:Button ID="ConfirmBtn" runat="server" Text="Confirm" class="Confirm-Btn"/></a>
+                  <asp:Button ID="ConfirmBtn" runat="server" Text="Confirm" class="Confirm-Btn" OnClick="ConfirmBtn_Click1" /></a>
     </div>
       </div>
       <div class="Title">MakeMeUpzz</div>

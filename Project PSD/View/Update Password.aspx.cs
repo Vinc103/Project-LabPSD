@@ -12,7 +12,7 @@ namespace Project_PSD.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            EcommerceDbEntities db = new EcommerceDbEntities
+            EcommerceDbEntities db = new EcommerceDbEntities()
         }
 
         protected void ConfirmBtn_Click(object sender, EventArgs e)
@@ -60,5 +60,7 @@ namespace Project_PSD.View
                 return false;
             }
         }
+
+       
     }
 }
