@@ -1,8 +1,11 @@
 ﻿using Project_PSD.Model;
+using Project_PSD.Handler;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -10,60 +13,90 @@ namespace Project_PSD.View
 {
     public partial class Update_Password : System.Web.UI.Page
     {
+        EcommerceDbEntities db = new EcommerceDbEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-            EcommerceDbEntities db = new EcommerceDbEntities()
-        }
-
-        protected void ConfirmBtn_Click(object sender, EventArgs e)
-        {
-            string newPassword = newPassTxt.Text;
-            string confirmPassword = ConfrimPassTxt.Text;
-
-            if (newPassword == confirmPassword)
-            {
-                // Call the method to update the password
-                bool isUpdated = UpdatePassword(User.Identity.Name, newPassword);
-
-                if (isUpdated)
+                if (!IsPostBack)
                 {
-                    // Password updated successfully
-                    Response.Redirect("Profile.aspx?message=PasswordUpdated");
+                    // Load user profile information
+                    LoadUserProfile();
+                }
+            }
+
+            private void LoadUserProfile()
+            {
+                string username = User.Identity.Name; // Assuming the username is the identity name
+                var user = db.Users.FirstOrDefault(u => u.Username == username);
+
+                //if (user != null)
+                //{
+                //    EmailTxt.Text = user.UserEmail;
+                //    DOBTxt.Text = user.UserDOB?.ToString("yyyy-MM-dd");
+                //    genderTxt.Text = user.UserGender;
+                //}
+            }
+
+            protected void LogoutBtn_Click(object sender, EventArgs e)
+            {
+                // Clear the session
+                Session.Clear();
+
+                // Sign out the user
+                FormsAuthentication.SignOut();
+
+                // Redirect to the login page
+                Response.Redirect("Login.aspx");
+            }
+
+            protected void UpdateProfileBtn_Click(object sender, EventArgs e)
+            {
+                string username = User.Identity.Name; // Assuming the username is the identity name
+                var user = db.Users.FirstOrDefault(u => u.Username == username);
+
+                if (user != null)
+                {
+                    //user.UserEmail = emailTxt.Text;
+                //    DateTime dob;
+                //    if (DateTime.TryParse(dobTxt.Text, out dob))
+                //    {
+                //        user.UserDOB = dob;
+                //    }
+                //    user.UserGender = genderTxt.Text;
+
+                //    db.SaveChanges();
+                //    Response.Redirect("Profile.aspx?message=ProfileUpdated");
+                //}
+                //else
+                //{
+                //    Response.Write("<script>alert('User not found');</script>");
+                }
+            }
+
+            protected void ConfirmBtn_Click1(object sender, EventArgs e)
+            {
+                string username = User.Identity.Name; // Assuming the username is the identity name
+                var user = db.Users.FirstOrDefault(u => u.Username == username);
+
+                if (user != null)
+                {
+                    string newPassword = newPassTxt.Text;
+                    string confirmPassword = ConfrimPassTxt.Text;
+
+                    if (newPassword == confirmPassword)
+                    {
+                        user.UserPassword = newPassword; // Hash the password before saving in production
+                        db.SaveChanges();
+                        Response.Redirect("Profile.aspx?message=PasswordUpdated");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Passwords do not match');</script>");
+                    }
                 }
                 else
                 {
-                    // Show error message
-                    Response.Write("<script>alert('Error updating password');</script>");
+                    Response.Write("<script>alert('User not found');</script>");
                 }
             }
-            else
-            {
-                // Show error message
-                Response.Write("<script>alert('Passwords do not match');</script>");
-            }
-        }
-
-        private bool UpdatePassword(string username, string newPassword)
-        {
-          
-            try
-            {
-                // Assuming you have a method in your data access layer to update the password
-                // Example: UserDataAccess.UpdatePassword(username, newPassword);
-
-                // For demonstration purposes, we assume the update is always successful
-                return true;
-            }
-            catch (Exception ex)
-            {
-                // Log the exception (ex) if needed
-                return false;
-            }
-        }
-
-        protected void ConfirmBtn_Click1(object sender, EventArgs e)
-        {
-
         }
     }
-}
