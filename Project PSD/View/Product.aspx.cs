@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_PSD.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -10,28 +11,45 @@ namespace Project_PSD.View
 {
     public partial class Product : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
+        EcommerceDbEntities db = new EcommerceDbEntities();
+
+            protected void Page_Load(object sender, EventArgs e)
             {
-                LoadProducts();
+                if (!IsPostBack)
+                {
+                    LoadProducts();
+                }
             }
-        }
 
-        private void LoadProducts()
-        {
-            string connectionString = "your_connection_string";
-            string query = "SELECT Name, Description, ImageUrl, Price FROM Products";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            private void LoadProducts()
             {
-                SqlCommand cmd = new SqlCommand(query, conn);
-                conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
+                var products = db.Makeups.Select(p => new
+                {
+                    p.MakeupName,
+                    p.MakeupPrice,
+                    p.MakeupWeight,
+                    p.MakeupTypeID,
+                    p.MakeupBrandID
+                }).ToList();
 
-                rptProducts.DataSource = reader;
+                rptProducts.DataSource = products;
                 rptProducts.DataBind();
+            }
+
+            protected void rptProducts_ItemCommand(object source, RepeaterCommandEventArgs e)
+            {
+                if (e.CommandName == "BuyNow")
+                {
+                    int productId = Convert.ToInt32(e.CommandArgument);
+                    // Logic to add the product to the cart
+                    // Response.Redirect("Cart.aspx?productId=" + productId);
+                }
+                else if (e.CommandName == "Details")
+                {
+                    int productId = Convert.ToInt32(e.CommandArgument);
+                    // Logic to redirect to the product details page
+                    // Response.Redirect("ProductDetails.aspx?productId=" + productId);
+                }
             }
         }
     }
-}

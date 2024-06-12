@@ -6,7 +6,7 @@
 <head runat="server">
 
     <style>
-         @import url(animate.min.css);
+ @import url(animate.min.css);
  @import url(normalize.css);
  @import url(icomoon.css);
  @import url(css/font-awesome.min.css);
@@ -875,18 +875,6 @@
 </div>
       <!-- header section end -->
       <!-- product section start -->
-      <div class="product_section layout_padding">
-         <div class="container">
-            <div class="row">
-               <div class="col-sm-12">
-                  <h1 class="product_taital">Our Products</h1>
-               </div>
-            </div>
-            <div class="product_section_2 layout_padding">
-               <div class="row">
-                  <div class="col-lg-3 col-sm-6">
-                     <div class="product_box">
-
                          <%--Nama product--%>
           <div class="product_section layout_padding">
             <div class="container">
@@ -897,7 +885,7 @@
                 </div>
                 <div class="product_section_2 layout_padding">
                     <div class="row">
-                        <asp:Repeater ID="rptProducts" runat="server">
+                        <asp:Repeater ID="rptProducts" runat="server" OnItemCommand="rptProducts_ItemCommand">
                             <ItemTemplate>
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="product_box">
@@ -908,7 +896,7 @@
                                             <div class="buy_bt">
                                                 <ul>
                                                     <li class="active"><a href="#">Buy Now</a></li>
-                                                    <li><a href="#">Details</a></li>
+                                                    <li><a href="Transaction.aspx">Add</a></li>
                                                 </ul>
                                             </div>
                                             <h3 class="price_text">Price <%# Eval("Price", "{0:C}") %></h3>
@@ -921,8 +909,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
       <!-- product section end -->
       <!-- footer section start -->
       <div class="footer_section layout_padding">
