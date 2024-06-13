@@ -33,7 +33,7 @@
 
 .product-images img {
     width: 100%;
-    border: 1px solid #ddd;
+    border: 10px solid #22c1c3;
     padding: 10px;
     background-color: #fff;
 }
@@ -172,8 +172,8 @@
                 <a href="Home.aspx"><img class="vector" src="../Img/Vector.png" /></a>
 
         <div class="container">
-            <div class="product-detail">
-                <div class="product-images">
+            <div id="product-detail">
+                <div id="product-images">
                     <img id="mainImage" src="../Web Img/img-11.png" />
                     <!-- Thumbnails if any -->
                 </div>
@@ -190,7 +190,7 @@
                         
                         <div class="Btn">
                         <asp:Button ID="AddToCartBtn" runat="server" Text="Add To Cart" class="btn-primary" />
-                        <asp:Button ID="Button1" runat="server" Text="Buy Now" class="btn-secondary" />
+                        <asp:Button ID="Button1" runat="server" Text="Buy Now" class="btn-secondary" OnClick="Button1_Click" />
                             </div>
                         </div>
                     </div>

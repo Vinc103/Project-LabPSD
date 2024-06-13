@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Transaction.aspx.cs" Inherits="Project_PSD.View.Transaction" %>
 
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -104,37 +105,12 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="overlap"><div class="text-wrapper">MakeMeUpzz</div></div>
-        <a href="Home.aspx"><img class="vector" src="../Img/Vector.png" /></a>
-     <div class="container">
+        <div class="overlap"><div class="text-wrapper">MakeMeUpzz</div>
+        <a href="Home.aspx"><img class="vector" src="../Img/Vector.png" /></a></div>
+        &nbsp;<div class="container">
             <h1>Checkout</h1>
             <div class="cart-details">
-                <asp:Repeater ID="rptCartItems" runat="server">
-                    <HeaderTemplate>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Quantity</th>
-                                    <th>Price</th>
-                                    <th>Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                    </HeaderTemplate>
-                    <ItemTemplate>
-                        <tr>
-                            <td><%# Eval("ProductName") %></td>
-                            <td><%# Eval("Quantity") %></td>
-                            <td><%# Eval("Price", "{0:C}") %></td>
-                            <td><%# Eval("Total", "{0:C}") %></td>
-                        </tr>
-                    </ItemTemplate>
-                    <FooterTemplate>
-                            </tbody>
-                        </table>
-                    </FooterTemplate>
-                </asp:Repeater>
+                <asp:GridView ID="rptCartItems" runat="server"></asp:GridView>
             </div>
             <div class="order-summary">
                 <h2>Order Summary</h2>

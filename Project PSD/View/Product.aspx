@@ -33,7 +33,7 @@
      color: #666666;
      font-size: 14px;
      line-height: 1.80857;
-     font-weight: normal;
+     font-weight: 400;
      overflow-x: hidden;
      font-family: 'Open Sans', sans-serif;
       margin: auto;

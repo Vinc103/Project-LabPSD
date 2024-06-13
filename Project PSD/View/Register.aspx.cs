@@ -11,7 +11,7 @@ namespace Project_PSD.View
 {
     public partial class Register : System.Web.UI.Page
     {
-        EcommerceDbEntities db = new EcommerceDbEntities();
+        public static EcommerceDbEntities db = new EcommerceDbEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
@@ -22,6 +22,8 @@ namespace Project_PSD.View
 
         protected void RegBtn_Click(object sender, EventArgs e)
         {
+            if (Page.IsValid)
+            {
                 string username = UsernameTxt.Text;
                 string email = EmailTxt.Text;
                 string password = PassTxt.Text;
@@ -58,3 +60,4 @@ namespace Project_PSD.View
             }
         }
     }
+}

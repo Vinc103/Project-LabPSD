@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Vincent\Documents\Kuliah Semester 4\Lab\Pattern Software Design\Project PSD\Project PSD\Model\ModelEcommerce.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Project-LabPSD\Project PSD\Model\ModelEcommerce.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

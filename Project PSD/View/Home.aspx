@@ -33,7 +33,7 @@
             color: #666666;
             font-size: 14px;
             line-height: 1.80857;
-            font-weight: normal;
+            font-weight: 10;
             overflow-x: hidden;
             font-family: 'Open Sans', sans-serif;
              margin: auto;
@@ -866,8 +866,7 @@
                 <a href="login.aspx"> Log In</a>
                </div>
                <a class="logo" href="Home.aspx">MakeMeUpzz</a>
-               <span onclick="openNav()"><img src="../Web Img/toggle-icon.png" class="toggle_icon"/></span>
-               <a href="Transaction.aspx"><img src="../Web Img/Bag-icon.png" class="bagicon"/></a>
+               <span onclick="openNav()"><img src="../Web Img/toggle-icon.png" class="toggle_icon"/></span>&nbsp;
                <form class="form-inline ">
 
                   <div class="login_text">
@@ -875,7 +874,7 @@
 
                      
                   </div>
-               </form>
+               <a href="Transaction.aspx"><img src="../Web Img/Bag-icon.png" class="bagicon"/></a></form>
             </nav>
          </div>
       </div>

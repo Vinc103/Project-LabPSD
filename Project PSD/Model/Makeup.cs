@@ -27,7 +27,11 @@ namespace Project_PSD.Model
         public int MakeupWeight { get; set; }
         public Nullable<int> MakeupTypeID { get; set; }
         public Nullable<int> MakeupBrandID { get; set; }
-    
+
+        public string Description { get; set; }
+
+        public string Image { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Carts { get; set; }
         public virtual MakeupBrand MakeupBrand { get; set; }

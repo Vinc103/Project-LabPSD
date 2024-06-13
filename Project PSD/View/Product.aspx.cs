@@ -11,7 +11,7 @@ namespace Project_PSD.View
 {
     public partial class Product : System.Web.UI.Page
     {
-        EcommerceDbEntities db = new EcommerceDbEntities();
+        public static EcommerceDbEntities db = new EcommerceDbEntities();
 
             protected void Page_Load(object sender, EventArgs e)
             {
