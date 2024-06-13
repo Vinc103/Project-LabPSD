@@ -143,12 +143,7 @@
       <LastGenOutput>ModelforAdmin.cs</LastGenOutput>
     </Content>
     <Content Include="ViewAdm\Admin Dash.aspx" />
-    <Content Include="ViewAdm\Handle orders.aspx" />
-    <Content Include="ViewAdm\Manage Makeup.aspx" />
-    <Content Include="ViewAdm\ManageMakeupBrand.aspx" />
-    <Content Include="ViewAdm\ManageMakeupType.aspx" />
     <Content Include="ViewAdm\Profile.aspx" />
-    <Content Include="ViewAdm\ViewCustomer.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -196,47 +191,12 @@
     <Compile Include="ViewAdm\Admin Dash.aspx.designer.cs">
       <DependentUpon>Admin Dash.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewAdm\Handle orders.aspx.cs">
-      <DependentUpon>Handle orders.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewAdm\Handle orders.aspx.designer.cs">
-      <DependentUpon>Handle orders.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewAdm\Manage Makeup.aspx.cs">
-      <DependentUpon>Manage Makeup.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewAdm\Manage Makeup.aspx.designer.cs">
-      <DependentUpon>Manage Makeup.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewAdm\ManageMakeupBrand.aspx.cs">
-      <DependentUpon>ManageMakeupBrand.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewAdm\ManageMakeupBrand.aspx.designer.cs">
-      <DependentUpon>ManageMakeupBrand.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewAdm\ManageMakeupType.aspx.cs">
-      <DependentUpon>ManageMakeupType.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewAdm\ManageMakeupType.aspx.designer.cs">
-      <DependentUpon>ManageMakeupType.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ViewAdm\Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewAdm\Profile.aspx.designer.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewAdm\ViewCustomer.aspx.cs">
-      <DependentUpon>ViewCustomer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewAdm\ViewCustomer.aspx.designer.cs">
-      <DependentUpon>ViewCustomer.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

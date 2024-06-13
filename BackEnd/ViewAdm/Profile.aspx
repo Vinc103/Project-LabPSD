@@ -8,30 +8,31 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <a href="Admin Dash.aspx">Back</a>
-      <h1>Profile</h1>
+        <h1>Profile</h1>
     <div class="profile-container">
         <div class="form-group">
-            <label for="txtUsername">Username:</label>
+            <label for="UsernameLbl">Username:</label>
             <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="txtEmail">Email:</label>
+            <label for="EmailLbl">Email:</label>
             <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="txtPassword">Password:</label>
-            <asp:TextBox ID="PasswordTxt" runat="server" CssClass="form-control"></asp:TextBox>
+            <label for="Passwordlbl">Password:</label>
+            <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
-         <div class="form-group">
-            <label for="txtDOB">Date of Birth:</label>
-            <asp:TextBox ID="DOBTxt" runat="server" CssClass="form-control"></asp:TextBox>
+        <div class="form-group">
+            <label for="DOBLbl">Date of Birth:</label>
+            <asp:TextBox ID="txtDOB" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
-         <div class="form-group">
-             <label for="txtGender">Gender:</label>
-             <asp:RadioButton ID="MaleRB" runat="server" text="Male" />
-             <asp:RadioButton ID="FemaleRB" runat="server" text="Female"/>
-         </div>
+        <div class="form-group">
+            <label for="txtGender">Gender</label>
+           <asp:RadioButton ID="MaleRB" runat="server" text="Male"/>
+           <asp:RadioButton ID="FemaleRB" runat="server" text="Female"/>
+
+        </div>
+
         <asp:Button ID="UpdateProfileBtn" runat="server" Text="Update Profile" CssClass="btn-primary" OnClick="UpdateProfileBtn_Click" />
     </div>
     </form>
