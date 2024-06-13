@@ -19,10 +19,9 @@
                     <li><a href="ManageMakeupBrand.aspx">Manage Makeup Brands</a></li>
                     <li><a href="Profile.aspx">Profile</a></li>
                     <li><a href="Orders.aspx">Orders</a></li>
-                    <li><a href="Logout.aspx">Logout</a></li>
                 </ul>
             </nav>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        <asp:Button ID="LogoutBtn" runat="server" Text="Logout" OnClick="LogoutBtn_Click" />
         </div>
     </form>
 </body>

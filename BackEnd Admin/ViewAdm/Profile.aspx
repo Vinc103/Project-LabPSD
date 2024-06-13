@@ -8,6 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <a href="Admin Dash.aspx">back</a>
         <h1>Profile</h1>
     <div class="profile-container">
         <div class="form-group">
