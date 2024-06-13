@@ -22,8 +22,6 @@ namespace Project_PSD.View
 
         protected void RegBtn_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid)
-            {
                 string username = UsernameTxt.Text;
                 string email = EmailTxt.Text;
                 string password = PassTxt.Text;
@@ -60,4 +58,3 @@ namespace Project_PSD.View
             }
         }
     }
-}

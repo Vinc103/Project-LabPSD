@@ -10,10 +10,9 @@ namespace Project_PSD.View
 {
     public partial class Login : System.Web.UI.Page
     {
-      EcommerceDbEntities db = new EcommerceDbEntities();
-
             protected void Page_Load(object sender, EventArgs e)
             {
+            EcommerceDbEntities db = new EcommerceDbEntities();
                 if (!IsPostBack && Request.Cookies["RememberMe"] != null)
                 {
                     string username = Request.Cookies["RememberMe"]["Username"];
