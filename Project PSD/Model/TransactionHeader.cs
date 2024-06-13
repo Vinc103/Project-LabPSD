@@ -21,7 +21,7 @@ namespace Project_PSD.Model
         }
     
         public int TransactionId { get; set; }
-        public Nullable<int> UserID { get; set; }
+        public Nullable<int> UserId { get; set; }
         public System.DateTime TransactionDate { get; set; }
         public string Status { get; set; }
     

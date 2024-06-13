@@ -3,6 +3,7 @@ using Project_PSD.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using static Project_PSD.Repository.MakeMeUpzzRepo;
 
@@ -10,13 +11,13 @@ namespace Project_PSD.Factory
 {
     public class MakeMeUpzzFactory
     {
-
         public static class RepositoryFactory
         {
-            private static EcommerceDbEntities db = new EcommerceDbEntities();
+            public static EcommerceDbEntities db = new EcommerceDbEntities();
 
             public static IRepository<User> GetUserRepository()
             {
+                
                 return new Repository<User>(db);
             }
 

@@ -1,4 +1,5 @@
 ﻿using Project_PSD.Model;
+using Project_PSD.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +10,13 @@ namespace Project_PSD.Handler
 {
     public class UserHandler
     {
-        EcommerceDbEntities db = new EcommerceDbEntities();
+        public static EcommerceDbEntities db = new EcommerceDbEntities();
 
             private readonly IRepository<User> _userRepository;
 
             public UserHandler(IRepository<User> userRepository)
             {
-                _userRepository = userRepository;
+            _userRepository = userRepository;
             }
 
             public IEnumerable<User> GetAllUsers()

@@ -9,7 +9,7 @@ namespace Project_PSD.Repository
 {
     public class MakeMeUpzzRepo
     {
-        EcommerceDbEntities db = new EcommerceDbEntities();
+        public static EcommerceDbEntities db = new EcommerceDbEntities();
         public interface IRepository<T> where T : class
         {
             IEnumerable<T> GetAll();

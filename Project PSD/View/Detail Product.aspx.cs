@@ -10,7 +10,7 @@ namespace Project_PSD.View
 {
     public partial class Detail_Product : System.Web.UI.Page
     {
-            EcommerceDbEntities db = new EcommerceDbEntities();
+            public static EcommerceDbEntities db = new EcommerceDbEntities();
             protected void Page_Load(object sender, EventArgs e)
             {
                 if (!IsPostBack)
@@ -30,13 +30,17 @@ namespace Project_PSD.View
 
             private void LoadProductDetails(int makeupId)
             {
+            using (var db = new EcommerceDbEntities())
+            {
+
+            }    
                 var product = db.Makeups.FirstOrDefault(p => p.MakeupId == makeupId);
                 if (product != null)
                 {
                     ProductName.InnerText = product.MakeupName;
                     MakeupPrice.InnerText = $"Rp. {product.MakeupPrice:N0}";
                     ProductDescription.InnerText = product.Description;
-                    mainImage.Src = $"../Web Img/{product.ImagePath}";
+                    mainImage.Src = $"../Web Img/{product.Image}";
                 }
                 else
                 {
@@ -82,5 +86,10 @@ namespace Project_PSD.View
                 // Dummy method for getting the user ID. Replace with your actual logic.
                 return 1;
             }
-        }
+
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ProductName; // Ensure this line exists in your code-behind
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MakeupPrice; // Ensure this line exists in your code-behind
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ProductDescription; // Ensure this line exists in your code-behind
+        protected global::System.Web.UI.HtmlControls.HtmlImage mainImage;
+    }
     }
