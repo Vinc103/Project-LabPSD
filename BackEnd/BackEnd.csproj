@@ -56,6 +56,8 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -74,12 +76,125 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\EcommerceDb.mdf" />
+    <Content Include="App_Data\EcommerceDb_log.ldf">
+      <DependentUpon>EcommerceDb.mdf</DependentUpon>
+    </Content>
+    <Content Include="Model\ModelforAdmin.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelforAdmin.edmx</DependentUpon>
+      <LastGenOutput>ModelforAdmin.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\ModelforAdmin.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelforAdmin.edmx</DependentUpon>
+      <LastGenOutput>ModelforAdmin.cs</LastGenOutput>
+    </Content>
+    <Content Include="ViewAdm\Admin Dash.aspx" />
+    <Content Include="ViewAdm\Handle orders.aspx" />
+    <Content Include="ViewAdm\Manage Makeup.aspx" />
+    <Content Include="ViewAdm\ManageMakeupBrand.aspx" />
+    <Content Include="ViewAdm\ManageMakeupType.aspx" />
+    <Content Include="ViewAdm\Profile.aspx" />
+    <Content Include="ViewAdm\ViewCustomer.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Cart.cs">
+      <DependentUpon>ModelforAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Makeup.cs">
+      <DependentUpon>ModelforAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MakeupBrand.cs">
+      <DependentUpon>ModelforAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MakeupType.cs">
+      <DependentUpon>ModelforAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModelforAdmin.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelforAdmin.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModelforAdmin.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelforAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModelforAdmin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelforAdmin.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TransactionDetail.cs">
+      <DependentUpon>ModelforAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TransactionHeader.cs">
+      <DependentUpon>ModelforAdmin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>ModelforAdmin.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewAdm\Admin Dash.aspx.cs">
+      <DependentUpon>Admin Dash.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewAdm\Admin Dash.aspx.designer.cs">
+      <DependentUpon>Admin Dash.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewAdm\Handle orders.aspx.cs">
+      <DependentUpon>Handle orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewAdm\Handle orders.aspx.designer.cs">
+      <DependentUpon>Handle orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewAdm\Manage Makeup.aspx.cs">
+      <DependentUpon>Manage Makeup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewAdm\Manage Makeup.aspx.designer.cs">
+      <DependentUpon>Manage Makeup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewAdm\ManageMakeupBrand.aspx.cs">
+      <DependentUpon>ManageMakeupBrand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewAdm\ManageMakeupBrand.aspx.designer.cs">
+      <DependentUpon>ManageMakeupBrand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewAdm\ManageMakeupType.aspx.cs">
+      <DependentUpon>ManageMakeupType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewAdm\ManageMakeupType.aspx.designer.cs">
+      <DependentUpon>ManageMakeupType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewAdm\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewAdm\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewAdm\ViewCustomer.aspx.cs">
+      <DependentUpon>ViewCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewAdm\ViewCustomer.aspx.designer.cs">
+      <DependentUpon>ViewCustomer.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="Model\ModelforAdmin.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelforAdmin.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\ModelforAdmin.edmx.diagram">
+      <DependentUpon>ModelforAdmin.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -88,9 +203,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="View\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
