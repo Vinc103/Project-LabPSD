@@ -18,35 +18,37 @@ namespace BackEnd_Admin.ViewAdm
 
             CrystalReportViewer1.ReportSource = report;
 
-            EcommerceDbEntities db = new EcommerceDbEntities();
-
-            EcommerceDB data = GetData(db.TransactionDetails.ToList());
-
-            report.SetDataSource(data);
+            using (EcommerceDbEntities db = new EcommerceDbEntities())
+            {
+                var transactions = db.TransactionHeaders.Include("TransactionDetails").ToList();
+                EcommerceDB data = GetData(transactions);
+                report.SetDataSource(data);
+            }
         }
 
-        private EcommerceDB GetData(List<Transaction_MakeMeupzz> transactions)
+        private EcommerceDB GetData(List<TransactionHeader> transactions)
         {
             EcommerceDB data = new EcommerceDB();
             var headertable = data.TransactionHeaders;
+            var detailtable = data.TransactionDetail;
 
-            foreach(TransactionHeader t in transactions)
+            foreach (TransactionHeader t in transactions)
             {
                 var headerRow = headertable.NewRow();
                 headerRow["TransactionId"] = t.TransactionId;
-                headerRow["UserID"] = t.User;
+                headerRow["UserID"] = t.UserID;
                 headerRow["TransactionDate"] = t.TransactionDate;
                 headerRow["status"] = t.Status;
                 headertable.Rows.Add(headerRow);
 
-                foreach(TransactionDetail d in t.TransactionDetails)
+                foreach (TransactionDetail d in t.TransactionDetails)
                 {
-                    var headerdetail = headertable.NewRow();
-                    headerdetail["DetailId"] = d.DetailId;
-                    headerdetail["TransactionId"] = d.TransactionID;
-                    headerdetail["MakeupID"] = d.MakeupID;
-                    headerdetail["Quantity"] = d.Quantity;
-                    headertable.Rows.Add(headerdetail);
+                    var detailRow = detailtable.NewRow();
+                    detailRow["DetailId"] = d.DetailId;
+                    detailRow["TransactionId"] = d.TransactionID;
+                    detailRow["MakeupID"] = d.MakeupID;
+                    detailRow["Quantity"] = d.Quantity;
+                    detailtable.Rows.Add(detailRow);
                 }
             }
             return data;
