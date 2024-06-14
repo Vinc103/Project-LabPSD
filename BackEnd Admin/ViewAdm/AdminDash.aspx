@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin Dash.aspx.cs" Inherits="BackEnd.ViewAdm.Admin_Dash" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminDash.aspx.cs" Inherits="BackEnd_Admin.ViewAdm.AdminDash" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Admin Dashboard</title>
+       <title>Admin Dashboard</title>
 </head>
 <body>
     <form id="form1" runat="server">
