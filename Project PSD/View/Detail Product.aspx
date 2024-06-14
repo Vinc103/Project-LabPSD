@@ -168,7 +168,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="overlap"><div class="text-wrapper">MakeMeUpzz</div></div>
+        <div class="overlap">
+            <div class="text-wrapper">MakeMeUpzz</div></div>
                 <a href="Home.aspx"><img class="vector" src="../Img/Vector.png" /></a>
 
         <div class="container">
@@ -190,7 +191,7 @@
                         
                         <div class="Btn">
                         <asp:Button ID="AddToCartBtn" runat="server" Text="Add To Cart" class="btn-primary" />
-                        <asp:Button ID="Button1" runat="server" Text="Buy Now" class="btn-secondary" OnClick="Button1_Click" />
+                            <asp:Button ID="Button1" runat="server" Text="Buy Now" class="btn-secondary" OnClick="Button1_Click" />
                             </div>
                         </div>
                     </div>

@@ -37,7 +37,7 @@ namespace Project_PSD.View
                 var product = db.Makeups.FirstOrDefault(p => p.MakeupId == makeupId);
                 if (product != null)
                 {
-                    ProductName.InnerText = product.MakeupName;
+                    MakeupName.InnerText = product.MakeupName;
                     MakeupPrice.InnerText = $"Rp. {product.MakeupPrice:N0}";
                     ProductDescription.InnerText = product.Description;
                     mainImage.Src = $"../Web Img/{product.Image}";
@@ -78,7 +78,7 @@ namespace Project_PSD.View
             protected void BuyNowBtn_Click(object sender, EventArgs e)
             {
                 AddToCartBtn_Click(sender, e); // Add item to cart
-                Response.Redirect("Checkout.aspx"); // Redirect to checkout
+                Response.Redirect("~/View/Transaction.aspx"); // Redirect to checkout
             }
 
             private int GetUserId()
@@ -91,5 +91,10 @@ namespace Project_PSD.View
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl MakeupPrice; // Ensure this line exists in your code-behind
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ProductDescription; // Ensure this line exists in your code-behind
         protected global::System.Web.UI.HtmlControls.HtmlImage mainImage;
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/View/Detail Product");
+        }
     }
     }
