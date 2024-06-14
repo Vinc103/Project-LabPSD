@@ -62,7 +62,7 @@ namespace Project_PSD.Controller
             return response;
         }
 
-        public static String CheckDOB(DateTime dob)
+        public static String CheckDOB(string dob)
         {
             String response = "";
             if (dob == null)

@@ -24,6 +24,15 @@ namespace Project_PSD.View
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// LblUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblUsername;
+
+        /// <summary>
         /// UsernameTxt control.
         /// </summary>
         /// <remarks>
@@ -33,13 +42,13 @@ namespace Project_PSD.View
         protected global::System.Web.UI.WebControls.TextBox UsernameTxt;
 
         /// <summary>
-        /// ErrorMessageLbl control.
+        /// lblEMail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ErrorMessageLbl;
+        protected global::System.Web.UI.WebControls.Label lblEMail;
 
         /// <summary>
         /// EmailTxt control.
@@ -51,13 +60,13 @@ namespace Project_PSD.View
         protected global::System.Web.UI.WebControls.TextBox EmailTxt;
 
         /// <summary>
-        /// EmailValidator control.
+        /// lblPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailValidator;
+        protected global::System.Web.UI.WebControls.Label lblPassword;
 
         /// <summary>
         /// PassTxt control.
@@ -69,13 +78,13 @@ namespace Project_PSD.View
         protected global::System.Web.UI.WebControls.TextBox PassTxt;
 
         /// <summary>
-        /// PasswordValidator control.
+        /// lblConfirmPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordValidator;
+        protected global::System.Web.UI.WebControls.Label lblConfirmPassword;
 
         /// <summary>
         /// ConfirmPassTxt control.
@@ -87,22 +96,13 @@ namespace Project_PSD.View
         protected global::System.Web.UI.WebControls.TextBox ConfirmPassTxt;
 
         /// <summary>
-        /// ConfirmPasswordValidator control.
+        /// lblDob control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ConfirmPasswordValidator;
-
-        /// <summary>
-        /// CompareValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator;
+        protected global::System.Web.UI.WebControls.Label lblDob;
 
         /// <summary>
         /// DOBTxt control.
@@ -114,13 +114,13 @@ namespace Project_PSD.View
         protected global::System.Web.UI.WebControls.TextBox DOBTxt;
 
         /// <summary>
-        /// DOBValidator control.
+        /// lblGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator DOBValidator;
+        protected global::System.Web.UI.WebControls.Label lblGender;
 
         /// <summary>
         /// MaleRB control.
@@ -148,6 +148,15 @@ namespace Project_PSD.View
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink LoginLink;
+
+        /// <summary>
+        /// Err control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Err;
 
         /// <summary>
         /// RegBtn control.

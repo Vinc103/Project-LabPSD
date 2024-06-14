@@ -8,9 +8,9 @@ namespace Project_PSD.Repository
 {
     public class UserRepository
     {
-        private static EcommerceDbEntities db = new EcommerceDbEntities();
+        private static readonly EcommerceDbEntities db = new EcommerceDbEntities();
         
-        public int generateid()
+        public int Generateid()
         {
             int lastid = db.Users.OrderByDescending(x => x.UserId).Select(x => x.UserId).FirstOrDefault();
             return lastid + 1;
@@ -37,18 +37,18 @@ namespace Project_PSD.Repository
             return false;
         }
 
-        public User getUserByUsername(string username)
+        public User GetUserByUsername(string username)
         {
             var user =  db.Users.Where(u => u.Username == username).FirstOrDefault();
             return user;
         }
 
-        public List<User> getAllUser()
+        public List<User> GetAllUser()
         {
            var user = db.Users.ToList();
             return user;
         }
-        public User getUserById(int id)
+        public User GetUserById(int id)
         {
             var user = db.Users.Where(u => u.UserId == id).FirstOrDefault();
             return user;
@@ -59,6 +59,7 @@ namespace Project_PSD.Repository
             userToUpdate.UserEmail = user.UserEmail;
             userToUpdate.UserDOB = user.UserDOB;
             userToUpdate.UserPassword = user.UserPassword;
+            userToUpdate.UserGender = user.UserGender;
             db.SaveChanges();
         }
     }

@@ -10,7 +10,7 @@ namespace Project_PSD.View
 {
     public partial class Profile : System.Web.UI.Page
     {
-        public static EcommerceDbEntities db = new EcommerceDbEntities();
+       public static EcommerceDbEntities db = new EcommerceDbEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -65,7 +65,7 @@ namespace Project_PSD.View
 
         protected void UpdatePassBtn_Click(object sender, EventArgs e)
         {
-            string username = User.Identity.Name; // Assuming the username is the identity name
+            string username = User.Identity.Name; 
             var user = db.Users.FirstOrDefault(u => u.Username == username);
 
             if (user != null)
@@ -74,7 +74,7 @@ namespace Project_PSD.View
  
                 if(UpdatePassBtn != null)
                 {
-                    user.UserPassword = newPassword; // Hash the password before saving in production
+                    user.UserPassword = newPassword; 
                     db.SaveChanges();
                     Response.Redirect("Profile.aspx?message=PasswordUpdated");
                 }

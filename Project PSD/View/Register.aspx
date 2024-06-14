@@ -295,36 +295,44 @@
                 <div class="overlap">
                     <div class="group">
                         <div>
-                            <asp:TextBox ID="UsernameTxt" runat="server" TextMode="SingleLine" class="overlap-group" Text="Username"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="ErrorMessageLbl" runat="server" ControlToValidate="UsernameTxt" ErrorMessage="Username is required." CssClass="ErrorMessage1" ForeColor="Red"/>
+                            <asp:Label ID="LblUsername" runat="server" Text="Username"></asp:Label>
+                            <asp:TextBox ID="UsernameTxt" runat="server" TextMode="SingleLine" class="overlap-group" ></asp:TextBox>
+                          
                         </div>
                     </div>
 
              <div class="overlap-wrapper">
                  <div>
-                     <asp:TextBox ID="EmailTxt" runat="server" TextMode="Email" class="overlap-group" Visible="True" ValidateRequestMode="Inherit" Text="Email"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="EmailValidator" runat="server" ControlToValidate="EmailTxt" ErrorMessage="Email is required." CssClass="ErrorMessage2" ForeColor="Red"/>
+                     <asp:Label ID="lblEMail" runat="server" Text="Email" TextMode="email"></asp:Label>
+                     <asp:TextBox ID="EmailTxt" runat="server" TextMode="Email" class="overlap-group" Visible="True" ValidateRequestMode="Inherit"></asp:TextBox>
+                    
                  </div>
              </div>
                 <div class="overlap-group-wrapper">
                     <div>
+                        <asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label>
                         <asp:TextBox ID="PassTxt" runat="server" TextMode="Password" class="overlap-group" Text="Password" ></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="PasswordValidator" runat="server" ControlToValidate="PassTxt" ErrorMessage="Password is required." CssClass="ErrorMessage3" ForeColor="Red"/>
                     </div>
                 </div>
                 <div class="group3">
                     <div>
+                        <asp:Label ID="lblConfirmPassword" runat="server" Text="Confirmation Password"></asp:Label>
                         <asp:TextBox ID="ConfirmPassTxt" runat="server" TextMode="Password" Text="Confirmation Password" class="overlap-group" >Confirmation Password</asp:TextBox>
-                    <asp:RequiredFieldValidator ID="ConfirmPasswordValidator" runat="server" ControlToValidate="ConfirmPassTxt" ErrorMessage="Confirmation Password is required." CssClass="ErrorMessage4" ForeColor="Red"/>
-                    <asp:CompareValidator ID="CompareValidator" runat="server" ControlToValidate="ConfirmPassTxt" ControlToCompare="PassTxt" ErrorMessage="Passwords do not match." CssClass="ErrorMessage4" ForeColor="Red"/>
+                    
                     </div>
                     </div>
                 <div class="group2">
                     <div>
-                     <asp:TextBox ID="DOBTxt" runat="server" TextMode="Date" class="overlap-group2" ></asp:TextBox></div>
-                    <asp:RequiredFieldValidator ID="DOBValidator" runat="server" ControlToValidate="DOBTxt" ErrorMessage="Date of Birth is required." CssClass="ErrorMessage5" ForeColor="Red"/>
+                        <asp:Label ID="lblDob" runat="server" Text="Date of Birth"></asp:Label>
+                     <asp:TextBox ID="DOBTxt" runat="server" TextMode="Date" class="overlap-group2" >
+
+                     </asp:TextBox>
+
+                    </div>
+                    
                 </div>
                   <div class="text-wrapper7">
+                      <asp:Label ID="lblGender" runat="server" Text="Gender"></asp:Label>
                     <asp:RadioButton ID="MaleRB" runat="server" Text="Male" GroupName="gender" />
                       <asp:RadioButton ID="FemaleRB" runat="server" Text="Female" GroupName="gender"  />
                    </div>
@@ -334,11 +342,14 @@
                 </p>
                     <%--Jadi Button--%>
                 <div class="div-wrapper">
-                     <asp:Button ID="RegBtn" runat="server" Text="Register" class="overlap2" PostBackUrl="~/View/Login.aspx"/>
+                                <div>
+                                    <asp:Label ID="Err" runat="server" Text="Error" ForeColor="Red"></asp:Label>
+                     <asp:Button ID="RegBtn" runat="server" Text="Register" class="overlap2" OnClick="RegBtn_Click"/>
                   </div>
               </div>
            </div>
        </div>
+        </div>
     </form>
 </body>
 </html>

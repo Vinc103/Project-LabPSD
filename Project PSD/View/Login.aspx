@@ -273,7 +273,7 @@ a {
                     <asp:TextBox ID="PasswordTxt" runat="server" class="overlap-group-1" TextMode="Password" Text="Password" >Password</asp:TextBox>
                   </div>
                       
-                  <asp:Button ID="LoginBtn" runat="server" Text="Log In" class="div-wrapper" PostBackUrl="~/View/Home.aspx" />
+                  <asp:Button ID="LoginBtn" runat="server" Text="Log In" class="div-wrapper"/>
         </div>
                   <asp:RequiredFieldValidator ID="UsernameRequired" runat="server" class="overlap-group2" ControlToValidate="UsernameTxt" ErrorMessage="Username is required." ForeColor="Red"></asp:RequiredFieldValidator>
                     <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" class="overlap-group3" ControlToValidate="PasswordTxt" ErrorMessage="Password is required." ForeColor="Red"></asp:RequiredFieldValidator>

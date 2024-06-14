@@ -12,41 +12,24 @@ namespace Project_PSD.Handler
     {
         public static EcommerceDbEntities db = new EcommerceDbEntities();
 
-            private readonly IRepository<User> _userRepository;
+            private readonly UserRepository _userRepository;
 
-            public UserHandler(IRepository<User> userRepository)
+        public UserHandler()
             {
-            _userRepository = userRepository;
+            _userRepository = new UserRepository();
             }
 
-            public IEnumerable<User> GetAllUsers()
+            public void RegisterUser(User user)
+        {
+            _userRepository.InputRegisteredUser(user);
+        }
+
+        public User GetUserId(int id)
             {
-                return _userRepository.GetAll();
+                return _userRepository.GetUser(id);
             }
 
-            public User GetUser(int id)
-            {
-                return _userRepository.Get(id);
-            }
-
-            public void AddUser(User user)
-            {
-                _userRepository.Add(user);
-            }
-
-            public void UpdateUser(User user)
-            {
-                _userRepository.Update(user);
-            }
-
-            public void DeleteUser(int id)
-            {
-                var user = _userRepository.Get(id);
-                if (user != null)
-                {
-                    _userRepository.Delete(user);
-                }
-            }
+            
         }
 
     }

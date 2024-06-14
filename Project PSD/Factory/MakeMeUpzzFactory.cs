@@ -55,10 +55,7 @@ namespace Project_PSD.Factory
 
        public static class HandlerFactory
 {
-    public static UserHandler GetUserHandler()
-    {
-        return new UserHandler(RepositoryFactory.GetUserRepository());
-    }
+  
 
     public static TransactionHeaderHandler GetTransactionHeaderHandler()
     {

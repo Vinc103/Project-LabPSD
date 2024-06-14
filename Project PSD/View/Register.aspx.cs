@@ -1,63 +1,89 @@
 ﻿using Project_PSD.Model;
+using Project_PSD.Repository;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Project_PSD.Handler;
+using Project_PSD.Factory;
+using Project_PSD.Controller;
+using System.Net.NetworkInformation;
 
 namespace Project_PSD.View
 {
     public partial class Register : System.Web.UI.Page
     {
-        public static EcommerceDbEntities db = new EcommerceDbEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                Response.Redirect("~/View/Home.aspx");
+                Err.Visible = false;
             }
         }
 
         protected void RegBtn_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid)
+            UserRepository userRepository = new UserRepository();
+
+            String response = UserController.CheckUser(UsernameTxt.Text);
+            if (!string.IsNullOrEmpty(response))
             {
-                string username = UsernameTxt.Text;
-                string email = EmailTxt.Text;
-                string password = PassTxt.Text;
-                string confirmPassword = ConfirmPassTxt.Text;
-                DateTime dob = DateTime.Parse(DOBTxt.Text);
-                string gender = MaleRB.Checked ? "Male" : FemaleRB.Checked ? "Female" : "";
-
-                {
-                    // Check if username already exists
-                    if (db.Users.Any(u => u.Username == username))
-                    {
-                        ErrorMessageLbl.Text = "Username already exists. Please choose a different username.";
-                        ErrorMessageLbl.Visible = true;
-                        return;
-                    }
-
-                    // Create and save the new user
-                    User newUser = new User
-                    {
-                        Username = username,
-                        UserEmail = email,
-                        UserPassword = password, // Consider hashing the password before saving
-                        UserDOB = dob,
-                        UserGender = gender,
-                        UserRole = "Customer" // Default role
-                    };
-
-                    db.Users.Add(newUser);
-                    db.SaveChanges();
-
-                    ErrorMessageLbl.Visible = false;
-                    Response.Redirect("~/View/Login.aspx");
-                }
+                ShowError(response);
+                return;
             }
+
+            response = UserController.CheckEmail(EmailTxt.Text);
+            if (!string.IsNullOrEmpty(response))
+            {
+                ShowError(response);
+                return;
+            }
+
+            response = UserController.CheckGender(MaleRB.Checked, FemaleRB.Checked);
+            if (!string.IsNullOrEmpty(response))
+            {
+                ShowError(response);
+                return;
+            }
+            
+            response = UserController.CheckDOB(DOBTxt.Text);
+            if (!string.IsNullOrEmpty(response))
+            {
+                ShowError(response);
+                return;
+            }
+            if (!DateTime.TryParse(DOBTxt.Text, out DateTime newDOB))
+            {
+                ShowError("Invalid Date of Birth");
+                return;
+            }
+
+
+            int newId = userRepository.Generateid();
+            String newUsername = UsernameTxt.Text;
+            String newEmail = EmailTxt.Text;
+            String newGender = MaleRB.Checked ? MaleRB.Text : FemaleRB.Text;
+            String newRole = "Costumer";
+            String newPassword = PassTxt.Text;
+
+            User user = RegUserFactory.Create(newId, newUsername, newEmail, newPassword, newGender, newRole, newDOB);
+            userRepository.InputRegisteredUser(user);
+            Response.Redirect("~/View/Login.aspx");
         }
+        protected void ShowError(string message)
+        {
+            Err.Text = message;
+            Err.Visible = true;
+        }
+
+
     }
 }
+
+        
+  
