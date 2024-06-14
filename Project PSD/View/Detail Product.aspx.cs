@@ -91,5 +91,10 @@ namespace Project_PSD.View
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl MakeupPrice; // Ensure this line exists in your code-behind
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ProductDescription; // Ensure this line exists in your code-behind
         protected global::System.Web.UI.HtmlControls.HtmlImage mainImage;
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/View/Detail Product");
+        }
     }
     }
